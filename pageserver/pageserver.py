@@ -91,7 +91,7 @@ def respond(sock):
 
     parts = request.split()
     if len(parts) > 1 and parts[0] == "GET":
-        path = './pages/'+parts[1]
+        path = get_options().DOCROOT+parts[1]
         if (".." in parts[1] or "~" in parts[1]):
             transmit(STATUS_FORBIDDEN, sock)
             transmit("Error: 403. Forbidden characters.", sock)
